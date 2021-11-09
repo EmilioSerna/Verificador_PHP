@@ -7,24 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script type="text/javascript">
-        setTimeout(function() {
-            window.location.href = "index.html";
-        }, 3000);
-    </script>
-
-    <script type="text/javascript">
-        if (window.addEventListener) {
-            var codigo = "";
-            window.addEventListener("keydown", function(e) {
-                codigo += String.fromCharCode(e.keyCode);
-                if (e.keyCode == 13) {
-                    window.location = "mostrar_producto.php?codigo=" + codigo;
-                    codigo = "";
-                }
-            }, true);
-        }
-    </script>
+    <script src="./js/functions.js"></script>
+    <script type="text/javascript">timerIndex();</script>
+    <script type="text/javascript">keyEventListener();</script>
 </head>
 
 <body>

@@ -7,9 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="./css/style.css">
     <script src="./js/functions.js"></script>
-    <script type="text/javascript">timerIndex();</script>
-    <script type="text/javascript">keyEventListener();</script>
+    <script type="text/javascript">
+        timerIndex();
+    </script>
+    <script type="text/javascript">
+        keyEventListener();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 
 <body>
@@ -33,15 +40,27 @@
 
             if ($rows == 1) {
         ?>
-                Producto <?= $result['producto_nombre'] ?><br>
-                Precio <?= $result['producto_precio'] ?><br>
-                Cantidad <?= $result['producto_stock'] ?><br>
-                <img src="<?= $result['producto_imagen'] ?>" width="150px" height="150px">
+                <div class="mostrarProducto">
+                    <img src="<?= $result['producto_imagen'] ?>" width="530px" height="530px">
+
+                    <div class="descripcionProducto">
+                        <h1 class="titleSmall">Producto <?= $result['producto_nombre'] ?><br></h1>
+                        <h2 class="subtitleLight"> Precio: $<?= $result['producto_precio'] ?><br></h2>
+                        <h1 class="titleSmall">Cantidad: <?= $result['producto_stock'] ?><br></h1>
+                    </div>
+                </div>
             <?php
             } else {
             ?>
-                No se encuentra el producto<br>
-                <img src="./img/error.png" alt="" width="50%" height="50%">
+                <div class="centerElements">
+                    <h1 class="title">Lo sentimos</h1>
+                    <h2 class="subtitle">
+                        Hubo un error al realizar el escaneo<br>
+                        Int&eacute;ntalo de nuevo o avisa a un<br>
+                        empleado de la sucursal para<br>
+                        solicitar ayuda
+                    </h2>
+                </div>
         <?php
             }
         } catch (PDOException $e) {
@@ -50,4 +69,5 @@
         ?>
     </h1>
 </body>
+
 </html>
